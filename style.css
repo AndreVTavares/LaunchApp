@@ -1,0 +1,50 @@
+html, body {
+    margin:0;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+
+    height: 100vh;
+}
+
+footer {
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+
+header, main, footer {
+    text-align: center;
+}
+
+header, .form, main {
+    margin: 0 auto 70px;
+
+    width: 90%;
+    max-width: 500px;
+}
+
+main .donors {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+section .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+form input, form button {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 4px;
+
+    padding: 8px 16px 8px 16px;
+}
+
+
+
+header h1, main h2 {
+    margin-bottom: 70px;
+}
