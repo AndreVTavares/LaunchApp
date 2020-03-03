@@ -1,4 +1,10 @@
+*{
+    box-sizing: border-box;
+}
+
+
 html, body {
+
     margin:0;
 }
 
@@ -7,11 +13,6 @@ body {
     flex-direction: column;
 
     height: 100vh;
-}
-
-footer {
-    margin-top: auto;
-    margin-bottom: 5px;
 }
 
 header, main, footer {
@@ -25,26 +26,57 @@ header, .form, main {
     max-width: 500px;
 }
 
+header button {
+    margin-top: 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    background-color: #ff4f4f;
+    color: white;
+
+    font-weight: bold;
+    
+}
+
 main .donors {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-section .form {
+section.form {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 45px;
+
+    padding: 16px 64px;
+    align-items: center;
+
+    background-color: #ff4f4f;
+
+    border-radius: 6px;
 }
 
 form input, form button {
     width: 100%;
-    box-sizing: border-box;
     margin-top: 4px;
 
-    padding: 8px 16px 8px 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px red solid;
 }
 
-
+.form h2 {
+    text-align: right;
+    color:#ffffffee;
+}
 
 header h1, main h2 {
     margin-bottom: 70px;
+}
+
+footer {
+    margin-top: auto;
+    margin-bottom: 5px;
+
+    border: 1px solid #eee;
 }
