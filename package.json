@@ -1,0 +1,23 @@
+{
+  "name": "LaunchApp",
+  "version": "1.0.0",
+  "description": "App realizado na maratona dev 3.0",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreVTavares/LaunchApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreVTavares/LaunchApp/issues"
+  },
+  "homepage": "https://github.com/AndreVTavares/LaunchApp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
