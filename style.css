@@ -84,6 +84,40 @@ form button {
     font-size: 18px;
 }
 
+.blood {
+    color: #ff4f4f;
+    font-weight: bold;
+    font-size: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.blood::before {
+    content: "";
+    background-color: #ff4f4f11;
+
+    width: 40px;
+    height: 40px;
+
+    position: absolute;
+
+    /* fazer a gotinha */
+
+    border-radius: 50%;
+    border-top-right-radius: 0;
+
+    transform: rotate(-45deg);
+}
+
+.donors p {
+    margin-top: 24px;
+    font-size: 14px;
+}
+
 header h1, main h2 {
     margin-bottom: 70px;
 }
@@ -97,4 +131,17 @@ footer {
     margin-bottom: 5px;
 
     border: 1px solid #eee;
+}
+
+/* funcionalidades javaScript */
+
+section.form {
+    transition: 300ms;
+}
+
+section.form.hide {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    margin-top: -70px;
 }
