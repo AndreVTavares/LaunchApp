@@ -21,7 +21,7 @@
 
     <section class="form hide">
         <h2>Entre na lista de doadores:</h2>
-        <form action="/">
+        <form action="/" method="POST">
             <input type="text" name="name" placeholder="Nome Completo">
 
             <input type="text" name="email" placeholder="Digite seu email">
@@ -36,31 +36,22 @@
         <h2>Últimos <span>Doadores</span></h2>
 
         <section class="donors">
-            <div class="donor">
-                <div class="blood">A+</div>
-                <p>André Tavares</p>
-            </div>
 
-            <div class="donor">
-                <div class="blood">A-</div>
-                <p>Edisio Neto</p>
-            </div>
+            {% for donor in donors %}
 
-            <div class="donor">
-                <div class="blood">A+</div>
-                <p>Marina Tavares</p>
-            </div>
+                <div class="donor">
+                    <div class="blood">{{donor.blood}}</div>
+                    <p>{{donor.name}}</p>
+                </div>
 
-            <div class="donor">
-                <div class="blood">O-</div>
-                <p>Yuri Antanes</p>
-            </div>
+            {%endfor%}
+            
         </section>
     </main>
 
     <footer>Deco Inc.</footer>
 
-    <script src="scripts.js"></script>
+    <script src="/scripts.js"></script>
 </body>
 
 
