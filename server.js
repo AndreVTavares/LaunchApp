@@ -24,26 +24,22 @@ const db = new Pool({
 // configurando a template engine
 const nunjucks = require("nunjucks")
 nunjucks.configure("./", {
-    express: server
+    express: server,
+    noCache: true
 })
-
-// lista de doadores
-
-const donors = [
-    {
-        name:"André Tavares",
-        blood: "A+"
-    },
-    {
-        name:"Edisio Neto",
-        blood: "B-"
-    }
-]
 
 
 // configurar a apresentação da pagina
 server.get("/", (req,res) => {
-    return res.render("index.html", { donors })
+    const query = `SELECT * FROM donors`
+
+    db.query(query, (err, result) => {
+        if(err) return res.send(err, "erro de banco de dados")
+
+        const donors = result.rows
+        return res.render("index.html", { donors })
+    })
+    
 })
 
 server.post("/", (req,res) => {
@@ -52,10 +48,24 @@ server.post("/", (req,res) => {
     const email = req.body.email
     const blood = req.body.blood
 
-    // colocando valores do array
-    donors.push({name,blood})
+    if(name == "" || email == "" || blood == "") {
+        return res.send("TODOS OS CAMPOS SÃO OBRIGATÓRIOS, POR FAVOR VOLTE E CONFIRA OS CAMPOS.")
+    }
 
-    return res.redirect("/")
+    // colocando valores dentro do banco de dados
+    const query = `
+        INSERT INTO donors ("name", "email", "blood") 
+        VALUES($1, $2, $3)`
+
+    const values = [name,email,blood]
+
+    db.query(query, values, (err) => {
+        if(err) return res.send(err, "erro de banco de dados")
+
+        return res.redirect("/")
+    })
+
+    
     
 })
 
