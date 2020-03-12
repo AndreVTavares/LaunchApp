@@ -9,6 +9,18 @@ server.use(express.static('public'))
 
 server.use(express.urlencoded({extended: true }))
 
+
+// configurar conexão com o banco de dados
+const Pool = require('pg').Pool
+const db = new Pool({
+    user: 'postgres',
+    password: '7865',
+    host: 'localhost',
+    port: 5432,
+    database: 'doe',
+    
+})
+
 // configurando a template engine
 const nunjucks = require("nunjucks")
 nunjucks.configure("./", {
